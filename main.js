@@ -239,41 +239,38 @@ ipcMain.on('start-install', async (ev, config) => {
             // Inject custom agent models into oh-my-opencode.jsonc
             if (cfg.name === 'oh-my-opencode.jsonc' && config.agentModels) {
                 try {
-                    // Parse JSONC by stripping comments
-                    const stripped = content.replace(/\/\/.*$/gm, '').replace(/\/\*[\s\S]*?\*\//g, '');
-                    const parsed = JSON.parse(stripped);
                     const agentKeyMap = { multimodal_looker: 'multimodal-looker' };
                     let changed = 0;
-                    if (parsed.agents) {
-                        Object.entries(config.agentModels).forEach(([key, model]) => {
-                            const jsonKey = agentKeyMap[key] || key;
-                            if (parsed.agents[jsonKey] && parsed.agents[jsonKey].model !== model) {
-                                const oldModel = parsed.agents[jsonKey].model;
-                                // Replace in raw content to preserve comments
-                                const re = new RegExp(`("${jsonKey}"\\s*:\\s*\\{[^}]*?"model"\\s*:\\s*)"[^"]*"`, 's');
-                                content = content.replace(re, `$1"${model}"`);
-                                sendLog('info', `Agent ${jsonKey}: ${oldModel.split('/').pop()} → ${model.split('/').pop()}`);
-                                changed++;
-                            }
-                        });
-                    }
+
+                    Object.entries(config.agentModels).forEach(([key, model]) => {
+                        const jsonKey = agentKeyMap[key] || key;
+                        const re = new RegExp(`("${jsonKey}"\\s*:\\s*\\{[^}]*?"model"\\s*:\\s*)"([^"]*)"`, 's');
+                        const match = content.match(re);
+                        if (match && match[2] !== model) {
+                            content = content.replace(re, `$1"${model}"`);
+                            sendLog('info', `Agent ${jsonKey}: ${match[2].split('/').pop()} → ${model.split('/').pop()}`);
+                            changed++;
+                        }
+                    });
+
                     // Also update categories based on agent groups
-                    if (parsed.categories) {
-                        const heavyModel = config.agentModels.sisyphus || 'google/antigravity-gemini-3-pro';
-                        const lightModel = config.agentModels.librarian || 'google/antigravity-gemini-3-flash';
-                        const catMap = {
-                            'visual-engineering': heavyModel, 'ultrabrain': heavyModel, 'deep': heavyModel,
-                            'artistry': heavyModel, 'unspecified-high': heavyModel, 'unspecified-low': heavyModel,
-                            'quick': lightModel, 'writing': lightModel
-                        };
-                        Object.entries(catMap).forEach(([cat, model]) => {
-                            if (parsed.categories[cat] && parsed.categories[cat].model !== model) {
-                                const re = new RegExp(`("${cat}"\\s*:\\s*\\{[^}]*?"model"\\s*:\\s*)"[^"]*"`, 's');
-                                content = content.replace(re, `$1"${model}"`);
-                                changed++;
-                            }
-                        });
-                    }
+                    const heavyModel = config.agentModels.sisyphus || 'google/antigravity-gemini-3-pro';
+                    const lightModel = config.agentModels.librarian || 'google/antigravity-gemini-3-flash';
+                    const catMap = {
+                        'visual-engineering': heavyModel, 'ultrabrain': heavyModel, 'deep': heavyModel,
+                        'artistry': heavyModel, 'unspecified-high': heavyModel, 'unspecified-low': heavyModel,
+                        'quick': lightModel, 'writing': lightModel
+                    };
+
+                    Object.entries(catMap).forEach(([cat, model]) => {
+                        const re = new RegExp(`("${cat}"\\s*:\\s*\\{[^}]*?"model"\\s*:\\s*)"([^"]*)"`, 's');
+                        const match = content.match(re);
+                        if (match && match[2] !== model) {
+                            content = content.replace(re, `$1"${model}"`);
+                            changed++;
+                        }
+                    });
+
                     if (changed > 0) sendLog('success', `Agent models: ${changed} updated`);
                     else sendLog('info', 'Agent models: no changes (using defaults)');
                 } catch (e) { sendLog('warn', `Agent model injection skipped: ${e.message}`); }
