@@ -1,0 +1,8 @@
+node_modules
+dist
+.env
+mac
+win
+build
+*.log
+*.DS_Store

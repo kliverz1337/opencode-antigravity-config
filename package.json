@@ -1,0 +1,27 @@
+{
+  "name": "opencode-antigravity-config",
+  "version": "1.0.0",
+  "description": "GUI installer for Antigravity OpenCode configuration",
+  "main": "main.js",
+  "bin": {
+    "opencode-agc": "./cli.js"
+  },
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "opencode",
+    "antigravity",
+    "config",
+    "installer",
+    "electron"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fontsource/fira-code": "^5.2.7",
+    "electron": "^40.6.0",
+    "jimp": "^1.6.0",
+    "png-to-ico": "^3.0.1"
+  }
+}

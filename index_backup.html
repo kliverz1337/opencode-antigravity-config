@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opencode Antigravity Config</title>
+    <meta http-equiv="Content-Security-Policy"
+        content="script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self';">
+    <link rel="stylesheet" href="node_modules/@fontsource/fira-code/400.css">
+    <link rel="stylesheet" href="node_modules/@fontsource/fira-code/600.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="window-container">
+        <div class="title-bar" id="titleBar">
+            <div class="title-left">
+                <img src="app.png" class="icon" alt="Ag Icon">
+                <span class="title-text">Opencode Antigravity Config</span>
+                <span class="version-text">v1.0.0</span>
+            </div>
+            <div class="window-controls">
+                <button id="btnMinimize" class="control-btn minimize">─</button>
+                <button id="btnClose" class="control-btn close">✕</button>
+            </div>
+        </div>
+        <div class="step-indicator">
+            <div class="step active" id="step0">
+                <div class="dot"></div><span>Welcome</span>
+            </div>
+            <div class="step" id="step1">
+                <div class="dot"></div><span>System</span>
+            </div>
+            <div class="step" id="step2">
+                <div class="dot"></div><span>Config</span>
+            </div>
+            <div class="step" id="step3">
+                <div class="dot"></div><span>Install</span>
+            </div>
+            <div class="step" id="step4">
+                <div class="dot"></div><span>Done</span>
+            </div>
+        </div>
+        <div class="content-area">
+            <!-- PAGE 0: WELCOME -->
+            <div id="page0" class="page active">
+                <div class="center-content">
+                    <img src="app.png" class="hero-icon" alt="Ag Icon">
+                    <h1>Opencode Antigravity</h1>
+                    <h2 class="cyan-text">Config</h2>
+                    <p class="subtitle">Install konfigurasi lengkap Opencode Antigravity stack:</p>
+                    <div class="info-panels">
+                        <div class="info-panel">
+                            <h3>🤖 oMo Agents</h3>
+                            <ul>
+                                <li><strong>Sisyphus</strong>: Orchestrator</li>
+                                <li><strong>Prometheus</strong>: Builder</li>
+                                <li><strong>Metis & Hephaestus</strong>: Coders</li>
+                                <li><strong>Librarian & Explore</strong>: Research</li>
+                            </ul>
+                        </div>
+                        <div class="info-panel">
+                            <h3>⚡ Models</h3>
+                            <ul>
+                                <li><strong>Gemini 3 Pro</strong> (High/Std)</li>
+                                <li><strong>Gemini 3 Flash</strong> (Fast)</li>
+                                <li><strong>Claude 4.6 Sonnet</strong></li>
+                                <li><strong>Claude 4.6 Opus</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <span class="config-meta" id="configMetaText">Loading...</span>
+                    <div class="welcome-actions"><button class="btn primary" id="btnStart">Get Started →</button></div>
+                    <div class="welcome-secondary">
+                        <button class="btn secondary btn-sm" id="btnVersionCheck">🔄 Updates</button>
+                        <button class="btn secondary btn-sm btn-danger" id="btnUninstall">🗑 Uninstall</button>
+                    </div>
+                </div>
+            </div>
+            <!-- PAGE 1: SYSTEM CHECK -->
+            <div id="page1" class="page">
+                <div class="page-header">
+                    <h2>System Check</h2>
+                    <p>Checking environment...</p>
+                </div>
+                <div class="scroll-area" id="prereqPanel"></div>
+                <div class="page-footer">
+                    <button class="btn secondary" id="btnRecheck">🔄 Re-check</button>
+                    <div style="flex:1"></div>
+                    <button class="btn secondary" id="btnPrev1">← Back</button>
+                    <button class="btn primary disabled" id="btnNext1" disabled>Continue →</button>
+                </div>
+            </div>
+            <!-- PAGE 2: CONFIG -->
+            <div id="page2" class="page">
+                <div class="page-header">
+                    <div class="header-row">
+                        <div>
+                            <h2>Configuration</h2>
+                            <p>API Keys & file selection</p>
+                        </div>
+                        <div class="header-actions">
+                            <button class="btn secondary btn-xs" id="btnImport">📥 Import</button>
+                            <button class="btn secondary btn-xs" id="btnExport">📤 Export</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-area">
+                    <div class="form-group">
+                        <div class="label-row"><label class="cyan-label">SUPERMEMORY</label><span
+                                class="val-indicator val-empty" id="valSupermemory">(Optional)</span></div>
+                        <span class="help-text">API Key (console.supermemory.ai/keys)</span>
+                        <input type="text" id="txtSupermemoryKey" class="modern-input" spellcheck="false"
+                            placeholder="sm_...">
+                    </div>
+                    <div class="form-group">
+                        <div class="label-row"><label class="purple-label">OPENSYNC</label><span
+                                class="val-indicator val-empty" id="valOpenSyncKey">(Optional)</span></div>
+                        <span class="help-text">API Key (opensync.dev → Settings)</span>
+                        <input type="text" id="txtOpenSyncKey" class="modern-input" spellcheck="false">
+                        <div class="label-row"><span class="help-text">Convex URL</span><span
+                                class="val-indicator val-empty" id="valOpenSyncUrl">(Optional)</span></div>
+                        <input type="text" id="txtOpenSyncUrl" class="modern-input" spellcheck="false"
+                            placeholder="https://...convex.cloud">
+                    </div>
+                    <div class="divider"></div>
+                    <div class="form-group">
+                        <div class="label-row"><label class="grey-label">FILES TO INSTALL</label><span
+                                class="file-actions"><a id="btnSelectAll" class="link-btn">All</a><span
+                                    class="link-sep">|</span><a id="btnDeselectAll" class="link-btn">None</a></span>
+                        </div>
+                        <div class="file-grid">
+                            <div class="file-row"><label class="modern-checkbox"><input type="checkbox"
+                                        class="file-checkbox" value="opencode.json" checked><span
+                                        class="checkmark"></span>opencode.json</label><button
+                                    class="btn-icon btn-preview" data-file="opencode.json"
+                                    title="Preview">👁</button><button class="btn-icon btn-diff"
+                                    data-file="opencode.json" title="Diff">⇄</button></div>
+                            <div class="file-row"><label class="modern-checkbox"><input type="checkbox"
+                                        class="file-checkbox" value="oh-my-opencode.jsonc" checked><span
+                                        class="checkmark"></span>oh-my-opencode.jsonc</label><button
+                                    class="btn-icon btn-preview" data-file="oh-my-opencode.jsonc">👁</button><button
+                                    class="btn-icon btn-diff" data-file="oh-my-opencode.jsonc">⇄</button></div>
+                            <div class="file-row"><label class="modern-checkbox"><input type="checkbox"
+                                        class="file-checkbox" value="dcp.jsonc" checked><span
+                                        class="checkmark"></span>dcp.jsonc</label><button class="btn-icon btn-preview"
+                                    data-file="dcp.jsonc">👁</button><button class="btn-icon btn-diff"
+                                    data-file="dcp.jsonc">⇄</button></div>
+                            <div class="file-row"><label class="modern-checkbox"><input type="checkbox"
+                                        class="file-checkbox" value="supermemory.jsonc" checked><span
+                                        class="checkmark"></span>supermemory.jsonc</label><button
+                                    class="btn-icon btn-preview" data-file="supermemory.jsonc">👁</button><button
+                                    class="btn-icon btn-diff" data-file="supermemory.jsonc">⇄</button></div>
+                            <div class="file-row"><label class="modern-checkbox"><input type="checkbox"
+                                        class="file-checkbox" value="opencode-sync.jsonc" checked><span
+                                        class="checkmark"></span>opencode-sync.jsonc</label><button
+                                    class="btn-icon btn-preview" data-file="opencode-sync.jsonc">👁</button><button
+                                    class="btn-icon btn-diff" data-file="opencode-sync.jsonc">⇄</button></div>
+                            <div class="file-row"><label class="modern-checkbox"><input type="checkbox"
+                                        class="file-checkbox" value="package.json" checked><span
+                                        class="checkmark"></span>package.json</label><button
+                                    class="btn-icon btn-preview" data-file="package.json">👁</button><button
+                                    class="btn-icon btn-diff" data-file="package.json">⇄</button></div>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <label class="grey-label">OPTIONS</label>
+                    <label class="modern-checkbox"><input type="checkbox" id="chkBackup" checked><span
+                            class="checkmark"></span>Backup konfigurasi lama</label>
+                    <label class="modern-checkbox"><input type="checkbox" id="chkNpmInstall" checked><span
+                            class="checkmark"></span>Jalankan npm install</label>
+                </div>
+                <div class="page-footer">
+                    <button class="btn secondary" id="btnPrev2">← Back</button>
+                    <button class="btn primary" id="btnNext2">Install Now →</button>
+                </div>
+            </div>
+            <!-- PAGE 3: INSTALLING -->
+            <div id="page3" class="page">
+                <div class="page-header">
+                    <h2 id="installTitle">Installing...</h2>
+                    <p id="installSubtitle">Menyalin konfigurasi...</p>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="installProgress" style="width:0%"></div>
+                </div>
+                <div class="log-container">
+                    <div class="log-header"><span class="log-title">Log</span></div>
+                    <div class="log-content scroll-area" id="logContent"></div>
+                </div>
+                <div class="page-footer"><button class="btn primary hidden" id="btnNext3">Finish ✓</button></div>
+            </div>
+            <!-- PAGE 4: COMPLETE -->
+            <div id="page4" class="page">
+                <div class="center-content">
+                    <div class="success-icon">✓</div>
+                    <h2>Installation Complete!</h2>
+                    <p class="success-text">Antigravity OpenCode siap digunakan</p>
+                    <div class="summary-card"><label class="cyan-label">📁 Config Location</label>
+                        <div class="code-text" id="txtConfigPath">...</div>
+                    </div>
+                    <div class="summary-card"><label class="purple-label">🚀 Next Steps</label>
+                        <div class="step-text">1. opencode auth login</div>
+                        <div class="step-text">2. opencode</div>
+                    </div>
+                    <div class="action-row">
+                        <button class="btn secondary" id="btnOpenFolder">📂 Config</button>
+                        <button class="btn secondary" id="btnAuthLogin">🔑 Auth</button>
+                        <button class="btn primary" id="btnFinish">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-container">
+            <div class="modal-header"><span class="modal-title" id="modalTitle">Title</span><button class="modal-close"
+                    id="btnModalClose">✕</button></div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+    <script src="renderer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opencode Antigravity Config</title>
+    <meta http-equiv="Content-Security-Policy"
+        content="script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self';">
+    <link rel="stylesheet" href="node_modules/@fontsource/fira-code/400.css">
+    <link rel="stylesheet" href="node_modules/@fontsource/fira-code/600.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="window-container">
+        <div class="title-bar" id="titleBar">
+            <div class="title-left">
+                <img src="app.png" class="icon" alt="Ag Icon">
+                <span class="title-text">Opencode Antigravity Config</span>
+                <span class="version-text">v1.0.0</span>
+            </div>
+            <div class="window-controls">
+                <button id="btnLang" class="control-btn lang-btn" title="Toggle Language">ID / EN</button>
+                <div class="divider-v"></div>
+                <button id="btnMinimize" class="control-btn minimize" title="Minimize">─</button>
+                <button id="btnClose" class="control-btn close" title="Close">✕</button>
+            </div>
+        </div>
+        <div class="step-indicator">
+            <div class="step active" id="step0">
+                <div class="dot"></div><span>Welcome</span>
+            </div>
+            <div class="step" id="step1">
+                <div class="dot"></div><span>oMo Model</span>
+            </div>
+            <div class="step" id="step2">
+                <div class="dot"></div><span>System</span>
+            </div>
+            <div class="step" id="step3">
+                <div class="dot"></div><span>Config</span>
+            </div>
+            <div class="step" id="step4">
+                <div class="dot"></div><span>Install</span>
+            </div>
+            <div class="step" id="step5">
+                <div class="dot"></div><span>Done</span>
+            </div>
+        </div>
+        <div class="content-area">
+            <!-- PAGE 0: WELCOME -->
+            <div id="page0" class="page active">
+                <div class="center-content">
+                    <img src="app.png" class="hero-icon" alt="Ag Icon">
+                    <h1>Opencode Antigravity</h1>
+                    <h2 class="cyan-text">Config</h2>
+                    <p class="subtitle">Install konfigurasi lengkap Opencode Antigravity stack:</p>
+                    <span class="config-meta" id="configMetaText">Loading...</span>
+                    <div class="welcome-actions"><button class="btn primary" id="btnStart">Get Started →</button></div>
+                    <div class="welcome-secondary">
+                        <button class="btn secondary btn-sm" id="btnVersionCheck">🔄 Updates</button>
+                        <button class="btn secondary btn-sm btn-danger" id="btnUninstall">🗑 Uninstall</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 1: OMO CONFIG -->
+            <div id="page1" class="page">
+                <div class="page-header">
+                    <h2>oMo Agent Model</h2>
+                    <p>Konfigurasi model AI untuk setiap agent</p>
+                </div>
+                <div class="scroll-area" style="padding:15px 0;">
+                    <div id="agentModelPanel" class="agent-panel">
+                        <div class="agent-panel-header">
+                            <h3>🤖 oMo Agents — AI Model</h3>
+                            <button type="button" id="btnAgentAdvanced" class="btn secondary btn-agent-toggle">⚙
+                                Advanced</button>
+                        </div>
+
+                        <!-- GROUP MODE (default) -->
+                        <div id="agentGroupMode">
+                            <div class="agent-group-row" style="border-left-color: #e74c3c;">
+                                <div class="agent-group-info">
+                                    <span class="agent-group-name">🧠 Heavy</span>
+                                    <span class="agent-group-members">Sisyphus, Prometheus, Metis, Oracle</span>
+                                </div>
+                                <select id="selGroupHeavy" class="agent-model-select">
+                                    <option value="google/antigravity-gemini-3-pro" selected>Gemini 3 Pro</option>
+                                    <option value="google/antigravity-gemini-3-flash">Gemini 3 Flash</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
+                                        Think</option>
+                                    <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="agent-group-row" style="border-left-color: #f39c12;">
+                                <div class="agent-group-info">
+                                    <span class="agent-group-name">⚙️ Standard</span>
+                                    <span class="agent-group-members">Hephaestus, Momus, Atlas</span>
+                                </div>
+                                <select id="selGroupStandard" class="agent-model-select">
+                                    <option value="google/antigravity-gemini-3-pro" selected>Gemini 3 Pro</option>
+                                    <option value="google/antigravity-gemini-3-flash">Gemini 3 Flash</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
+                                        Think</option>
+                                    <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="agent-group-row" style="border-left-color: #3498db;">
+                                <div class="agent-group-info">
+                                    <span class="agent-group-name">⚡ Light</span>
+                                    <span class="agent-group-members">Librarian, Explore, Multimodal-Looker</span>
+                                </div>
+                                <select id="selGroupLight" class="agent-model-select">
+                                    <option value="google/antigravity-gemini-3-flash" selected>Gemini 3 Flash</option>
+                                    <option value="google/antigravity-gemini-3-pro">Gemini 3 Pro</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
+                                        Think</option>
+                                    <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- ADVANCED MODE (per-agent, hidden by default) -->
+                        <div id="agentAdvancedMode" style="display:none;">
+                            <div class="agent-adv-section" style="border-left-color:#e74c3c;">🧠 Heavy Group</div>
+                            <div class="agent-adv-row"><span class="agent-adv-name">Sisyphus
+                                    <i>(Orchestrator)</i></span><select id="selAgent_sisyphus"
+                                    class="agent-model-select agent-adv-select" data-group="heavy">
+                                    <option value="google/antigravity-gemini-3-pro" selected>Gemini 3 Pro</option>
+                                    <option value="google/antigravity-gemini-3-flash">Gemini 3 Flash</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
+                                        Think</option>
+                                    <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
+                                    </option>
+                                </select></div>
+                            <div class="agent-adv-row"><span class="agent-adv-name">Prometheus
+                                    <i>(Builder)</i></span><select id="selAgent_prometheus"
+                                    class="agent-model-select agent-adv-select" data-group="heavy">
+                                    <option value="google/antigravity-gemini-3-pro" selected>Gemini 3 Pro</option>
+                                    <option value="google/antigravity-gemini-3-flash">Gemini 3 Flash</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
+                                        Think</option>
+                                    <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
+                                    </option>
+                                </select></div>
+                            <div class="agent-adv-row"><span class="agent-adv-name">Metis <i>(Coder)</i></span><select
+                                    id="selAgent_metis" class="agent-model-select agent-adv-select" data-group="heavy">
+                                    <option value="google/antigravity-gemini-3-pro" selected>Gemini 3 Pro</option>
+                                    <option value="google/antigravity-gemini-3-flash">Gemini 3 Flash</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
+                                        Think</option>
+                                    <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
+                                    </option>
+                                </select></div>
+                            <div class="agent-adv-row"><span class="agent-adv-name">Oracle
+                                    <i>(Analyst)</i></span><select id="selAgent_oracle"
+                                    class="agent-model-select agent-adv-select" data-group="heavy">
+                                    <option value="google/antigravity-gemini-3-pro" selected>Gemini 3 Pro</option>
+                                    <option value="google/antigravity-gemini-3-flash">Gemini 3 Flash</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
+                                        Think</option>
+                                    <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
+                                    </option>
+                                </select></div>
+
+                            <div class="agent-adv-section" style="border-left-color:#f39c12;">⚙️ Standard Group</div>
+                            <div class="agent-adv-row"><span class="agent-adv-name">Hephaestus
+                                    <i>(Coder)</i></span><select id="selAgent_hephaestus"
+                                    class="agent-model-select agent-adv-select" data-group="standard">
+                                    <option value="google/antigravity-gemini-3-pro" selected>Gemini 3 Pro</option>
+                                    <option value="google/antigravity-gemini-3-flash">Gemini 3 Flash</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
+                                        Think</option>
+                                    <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
+                                    </option>
+                                </select></div>
+                            <div class="agent-adv-row"><span class="agent-adv-name">Momus
+                                    <i>(Reviewer)</i></span><select id="selAgent_momus"
+                                    class="agent-model-select agent-adv-select" data-group="standard">
+                                    <option value="google/antigravity-gemini-3-pro" selected>Gemini 3 Pro</option>
+                                    <option value="google/antigravity-gemini-3-flash">Gemini 3 Flash</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
+                                        Think</option>
+                                    <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
+                                    </option>
+                                </select></div>
+                            <div class="agent-adv-row"><span class="agent-adv-name">Atlas <i>(Worker)</i></span><select
+                                    id="selAgent_atlas" class="agent-model-select agent-adv-select"
+                                    data-group="standard">
+                                    <option value="google/antigravity-gemini-3-pro" selected>Gemini 3 Pro</option>
+                                    <option value="google/antigravity-gemini-3-flash">Gemini 3 Flash</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
+                                        Think</option>
+                                    <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
+                                    </option>
+                                </select></div>
+
+                            <div class="agent-adv-section" style="border-left-color:#3498db;">⚡ Light Group</div>
+                            <div class="agent-adv-row"><span class="agent-adv-name">Librarian
+                                    <i>(Research)</i></span><select id="selAgent_librarian"
+                                    class="agent-model-select agent-adv-select" data-group="light">
+                                    <option value="google/antigravity-gemini-3-flash" selected>Gemini 3 Flash</option>
+                                    <option value="google/antigravity-gemini-3-pro">Gemini 3 Pro</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
+                                        Think</option>
+                                    <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
+                                    </option>
+                                </select></div>
+                            <div class="agent-adv-row"><span class="agent-adv-name">Explore <i>(Scout)</i></span><select
+                                    id="selAgent_explore" class="agent-model-select agent-adv-select"
+                                    data-group="light">
+                                    <option value="google/antigravity-gemini-3-flash" selected>Gemini 3 Flash</option>
+                                    <option value="google/antigravity-gemini-3-pro">Gemini 3 Pro</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
+                                        Think</option>
+                                    <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
+                                    </option>
+                                </select></div>
+                            <div class="agent-adv-row"><span class="agent-adv-name">Multimodal-Looker
+                                    <i>(Vision)</i></span><select id="selAgent_multimodal_looker"
+                                    class="agent-model-select agent-adv-select" data-group="light">
+                                    <option value="google/antigravity-gemini-3-flash" selected>Gemini 3 Flash</option>
+                                    <option value="google/antigravity-gemini-3-pro">Gemini 3 Pro</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
+                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
+                                        Think</option>
+                                    <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
+                                    </option>
+                                </select></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-footer">
+                    <button class="btn secondary" id="btnPrev1">← Back</button>
+                    <div style="flex:1"></div>
+                    <button class="btn primary" id="btnNext1">Continue →</button>
+                </div>
+            </div>
+            <!-- PAGE 2: SYSTEM CHECK -->
+            <div id="page2" class="page">
+                <div class="page-header">
+                    <h2>System Check</h2>
+                    <p>Checking environment...</p>
+                </div>
+                <div class="scroll-area" id="prereqPanel"></div>
+                <div class="page-footer">
+                    <button class="btn secondary" id="btnRecheck">🔄 Re-check</button>
+                    <div style="flex:1"></div>
+                    <button class="btn secondary" id="btnPrev2">← Back</button>
+                    <button class="btn primary disabled" id="btnNext2" disabled>Continue →</button>
+                </div>
+            </div>
+            <!-- PAGE 3: CONFIG -->
+            <div id="page3" class="page">
+                <div class="page-header">
+                    <div class="header-row">
+                        <div>
+                            <h2>Configuration</h2>
+                            <p>API Keys & file selection</p>
+                        </div>
+                        <div class="header-actions">
+                            <button class="btn secondary btn-xs" id="btnImport">📥 Import</button>
+                            <button class="btn secondary btn-xs" id="btnExport">📤 Export</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-area">
+                    <div class="form-group">
+                        <div class="label-row">
+                            <label class="cyan-label">PLUGINS <span id="pluginCount"
+                                    style="color:var(--t2);font-weight:normal;font-size:10px;margin-left:4px">3/7</span></label>
+                            <span class="file-actions">
+                                <a id="btnPluginAll" class="link-btn">All</a><span class="link-sep">|</span><a
+                                    id="btnPluginNone" class="link-btn">None</a>
+                            </span>
+                        </div>
+                        <div class="plugin-grid" id="pluginGrid">
+                            <div class="plugin-group-title" id="lblCorePlugins">🔒 Core (Required)</div>
+                            <div class="plugin-row core-plugin"><label class="modern-checkbox"><input type="checkbox"
+                                        class="plugin-checkbox" value="opencode-antigravity-auth" checked disabled><span
+                                        class="checkmark"></span>⚡ opencode-antigravity-auth</label><span
+                                    class="plugin-desc">Authentication (required)</span></div>
+                            <div class="plugin-row core-plugin"><label class="modern-checkbox"><input type="checkbox"
+                                        class="plugin-checkbox" value="oh-my-opencode" checked disabled><span
+                                        class="checkmark"></span>🤖 oh-my-opencode</label><span class="plugin-desc">oMo
+                                    Agents (required)</span></div>
+                            <div class="plugin-row core-plugin"><label class="modern-checkbox"><input type="checkbox"
+                                        class="plugin-checkbox" value="@tarquinen/opencode-dcp" checked disabled><span
+                                        class="checkmark"></span>✂️ @tarquinen/opencode-dcp</label><span
+                                    class="plugin-desc">Context Pruning (required)</span></div>
+
+                            <div class="plugin-group-title" id="lblOptionalPlugins" style="margin-top:4px;">⚙️ Optional
+                            </div>
+                            <div class="plugin-row optional-plugin"><label class="modern-checkbox"><input
+                                        type="checkbox" class="plugin-checkbox" id="chkPluginSupermemory"
+                                        value="opencode-supermemory"><span class="checkmark"></span>🧠
+                                    opencode-supermemory</label><span class="plugin-badge hidden" id="warnSupermemory">⚠
+                                    No key</span><span class="plugin-desc">RAG Memory System</span></div>
+                            <div class="plugin-row optional-plugin"><label class="modern-checkbox"><input
+                                        type="checkbox" class="plugin-checkbox"
+                                        value="@ramtinj95/opencode-tokenscope"><span class="checkmark"></span>📊
+                                    @ramtinj95/opencode-tokenscope</label><span class="plugin-desc">Token Usage
+                                    Stats</span></div>
+                            <div class="plugin-row optional-plugin"><label class="modern-checkbox"><input
+                                        type="checkbox" class="plugin-checkbox" id="chkPluginOpenSync"
+                                        value="opencode-sync-plugin"><span class="checkmark"></span>🌩️
+                                    opencode-sync-plugin</label><span class="plugin-badge hidden" id="warnOpenSync">⚠ No
+                                    key</span><span class="plugin-desc">Chat Sync (OpenSync)</span></div>
+                            <div class="plugin-row optional-plugin"><label class="modern-checkbox"><input
+                                        type="checkbox" class="plugin-checkbox" value="cc-safety-net"><span
+                                        class="checkmark"></span>🛡️
+                                    cc-safety-net</label><span class="plugin-desc">Safety Guard</span></div>
+                        </div>
+                        <div style="margin-top:6px;text-align:right;">
+                            <button class="btn secondary btn-xs" id="btnPreviewConfig">👁 Preview opencode.json</button>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="form-group">
+                        <div class="label-row"><label class="cyan-label">SUPERMEMORY</label><span
+                                class="val-indicator val-empty" id="valSupermemory">(Optional)</span></div>
+                        <span class="help-text">API Key (console.supermemory.ai/keys)</span>
+                        <input type="text" id="txtSupermemoryKey" class="modern-input" spellcheck="false"
+                            placeholder="sm_...">
+                    </div>
+                    <div class="form-group">
+                        <div class="label-row"><label class="purple-label">OPENSYNC</label><span
+                                class="val-indicator val-empty" id="valOpenSyncKey">(Optional)</span></div>
+                        <span class="help-text">API Key (opensync.dev → Settings)</span>
+                        <input type="text" id="txtOpenSyncKey" class="modern-input" spellcheck="false">
+                        <div class="label-row"><span class="help-text">Convex URL</span><span
+                                class="val-indicator val-empty" id="valOpenSyncUrl">(Optional)</span></div>
+                        <input type="text" id="txtOpenSyncUrl" class="modern-input" spellcheck="false"
+                            placeholder="https://...convex.cloud">
+                    </div>
+
+                    <div class="divider"></div>
+                    <label class="grey-label">OPTIONS</label>
+                    <label class="modern-checkbox"><input type="checkbox" id="chkBackup" checked><span
+                            class="checkmark"></span>Backup konfigurasi lama</label>
+                    <label class="modern-checkbox"><input type="checkbox" id="chkNpmInstall" checked><span
+                            class="checkmark"></span>Jalankan npm install</label>
+                </div>
+                <div class="page-footer">
+                    <button class="btn secondary" id="btnPrev3">← Back</button>
+                    <button class="btn primary" id="btnNext3">Install Now →</button>
+                </div>
+            </div>
+            <!-- PAGE 4: INSTALLING -->
+            <div id="page4" class="page">
+                <div class="page-header">
+                    <h2 id="installTitle">Installing...</h2>
+                    <p id="installSubtitle">Menyalin konfigurasi...</p>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="installProgress" style="width:0%"></div>
+                </div>
+                <div class="log-container">
+                    <div class="log-header"><span class="log-title">Log</span></div>
+                    <div class="log-content scroll-area" id="logContent"></div>
+                </div>
+                <div class="page-footer"><button class="btn primary hidden" id="btnNext4">Finish ✓</button></div>
+            </div>
+            <!-- PAGE 5: COMPLETE -->
+            <div id="page5" class="page">
+                <div class="center-content">
+                    <div class="success-icon">✓</div>
+                    <h2>Installation Complete!</h2>
+                    <p class="success-text">Antigravity OpenCode siap digunakan</p>
+                    <div class="summary-card"><label class="cyan-label">📁 Config Location</label>
+                        <div class="code-text" id="txtConfigPath">...</div>
+                    </div>
+                    <div class="summary-card"><label class="purple-label">🚀 Next Steps</label>
+                        <div class="step-text">1. opencode auth login</div>
+                        <div class="step-text">2. opencode</div>
+                    </div>
+                    <div class="action-row">
+                        <button class="btn secondary" id="btnOpenFolder">📂 Config</button>
+                        <button class="btn secondary" id="btnAuthLogin">🔑 Auth</button>
+                        <button class="btn primary" id="btnFinish">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-container">
+            <div class="modal-header"><span class="modal-title" id="modalTitle">Title</span><button class="modal-close"
+                    id="btnModalClose">✕</button></div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+    <script src="i18n.js"></script>
+    <script src="renderer.js"></script>
+</body>
+
+</html>
