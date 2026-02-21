@@ -6,43 +6,43 @@
     // ============================================================
     "agents": {
         "sisyphus": {
-            "model": "google/antigravity-gemini-3-1-pro",
+            "model": "google/antigravity-gemini-3.1-pro",
             "variant": "high",
             "temperature": 0.7,
             "maxTokens": 32000
         },
         "prometheus": {
-            "model": "google/antigravity-gemini-3-1-pro",
+            "model": "google/antigravity-gemini-3.1-pro",
             "variant": "high",
             "temperature": 0.6,
             "maxTokens": 16000
         },
         "hephaestus": {
-            "model": "google/antigravity-gemini-3-1-pro",
-            "variant": "standard",
+            "model": "google/antigravity-gemini-3.1-pro",
+            "variant": "low",
             "temperature": 0.5,
             "maxTokens": 32000
         },
         "metis": {
-            "model": "google/antigravity-gemini-3-1-pro",
+            "model": "google/antigravity-gemini-3.1-pro",
             "variant": "high",
             "temperature": 0.7,
             "maxTokens": 32000
         },
         "momus": {
-            "model": "google/antigravity-gemini-3-1-pro",
-            "variant": "standard",
+            "model": "google/antigravity-gemini-3.1-pro",
+            "variant": "low",
             "temperature": 0.5,
             "maxTokens": 32000
         },
         "atlas": {
-            "model": "google/antigravity-gemini-3-1-pro",
-            "variant": "standard",
+            "model": "google/antigravity-gemini-3.1-pro",
+            "variant": "low",
             "temperature": 0.5,
             "maxTokens": 32000
         },
         "oracle": {
-            "model": "google/antigravity-gemini-3-1-pro",
+            "model": "google/antigravity-gemini-3.1-pro",
             "variant": "high",
             "temperature": 0.5,
             "maxTokens": 32000
@@ -65,7 +65,7 @@
         },
         "multimodal-looker": {
             "model": "google/antigravity-gemini-3-flash",
-            "variant": "standard",
+            "variant": "minimal",
             "temperature": 0.5,
             "maxTokens": 8000
         }
@@ -75,25 +75,25 @@
     // ============================================================
     "categories": {
         "visual-engineering": {
-            "model": "google/antigravity-gemini-3-1-pro",
+            "model": "google/antigravity-gemini-3.1-pro",
             "variant": "high",
             "temperature": 0.9,
             "maxTokens": 32000
         },
         "ultrabrain": {
-            "model": "google/antigravity-gemini-3-1-pro",
+            "model": "google/antigravity-gemini-3.1-pro",
             "variant": "high",
             "temperature": 0.7,
             "maxTokens": 32000
         },
         "deep": {
-            "model": "google/antigravity-gemini-3-1-pro",
+            "model": "google/antigravity-gemini-3.1-pro",
             "variant": "high",
             "temperature": 0.7,
             "maxTokens": 32000
         },
         "artistry": {
-            "model": "google/antigravity-gemini-3-1-pro",
+            "model": "google/antigravity-gemini-3.1-pro",
             "variant": "high",
             "temperature": 1.0,
             "maxTokens": 32000
@@ -105,13 +105,13 @@
             "maxTokens": 8000
         },
         "unspecified-low": {
-            "model": "google/antigravity-gemini-3-1-pro",
-            "variant": "standard",
+            "model": "google/antigravity-gemini-3.1-pro",
+            "variant": "low",
             "temperature": 0.7,
             "maxTokens": 16000
         },
         "unspecified-high": {
-            "model": "google/antigravity-gemini-3-1-pro",
+            "model": "google/antigravity-gemini-3.1-pro",
             "variant": "high",
             "temperature": 0.7,
             "maxTokens": 32000
@@ -143,7 +143,7 @@
         },
         "modelConcurrency": {
             "google/antigravity-gemini-3-flash": 5,
-            "google/antigravity-gemini-3-1-pro": 4
+            "google/antigravity-gemini-3.1-pro": 4
         }
     },
     // ============================================================

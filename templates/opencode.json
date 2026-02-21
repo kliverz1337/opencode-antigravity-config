@@ -14,7 +14,7 @@
     "provider": {
         "google": {
             "models": {
-                "antigravity-gemini-3-1-pro": {
+                "antigravity-gemini-3.1-pro": {
                     "name": "Gemini 3.1 Pro (Antigravity)",
                     "limit": {
                         "context": 1048576,
@@ -31,7 +31,6 @@
                         ]
                     },
                     "variants": {
-                        "standard": {},
                         "low": {
                             "thinkingLevel": "low"
                         },
@@ -57,7 +56,6 @@
                         ]
                     },
                     "variants": {
-                        "standard": {},
                         "minimal": {
                             "thinkingLevel": "minimal"
                         },
@@ -90,35 +88,6 @@
                     },
                     "variants": {
                         "standard": {}
-                    }
-                },
-                "antigravity-claude-sonnet-4-6-thinking": {
-                    "name": "Claude Sonnet 4.6 Thinking (Antigravity)",
-                    "limit": {
-                        "context": 200000,
-                        "output": 64000
-                    },
-                    "modalities": {
-                        "input": [
-                            "text",
-                            "image",
-                            "pdf"
-                        ],
-                        "output": [
-                            "text"
-                        ]
-                    },
-                    "variants": {
-                        "low": {
-                            "thinkingConfig": {
-                                "thinkingBudget": 8192
-                            }
-                        },
-                        "max": {
-                            "thinkingConfig": {
-                                "thinkingBudget": 32768
-                            }
-                        }
                     }
                 },
                 "antigravity-claude-opus-4-6-thinking": {
