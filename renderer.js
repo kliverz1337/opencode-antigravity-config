@@ -89,6 +89,33 @@ document.addEventListener('DOMContentLoaded', () => {
         if (el) el.addEventListener('change', () => { if (!agentAdvancedMode) syncAgentsFromGroups(); });
     });
 
+    // Global Template Presets
+    const selGlobalPreset = document.getElementById('selGlobalPreset');
+    if (selGlobalPreset) {
+        selGlobalPreset.addEventListener('change', (e) => {
+            const val = e.target.value;
+            if (!val) return;
+
+            const heavy = document.getElementById('selGroupHeavy');
+            const standard = document.getElementById('selGroupStandard');
+            const light = document.getElementById('selGroupLight');
+            const lookup = {
+                'antigravity_default': ['google/antigravity-gemini-3-1-pro', 'google/antigravity-gemini-3-1-pro', 'google/antigravity-gemini-3-flash'],
+                'max_reasoning': ['google/antigravity-claude-opus-4-6-thinking', 'google/antigravity-gemini-3-deep-think', 'google/antigravity-claude-sonnet-4-6'],
+                'fast_cheap': ['google/antigravity-gemini-3-flash', 'google/antigravity-gemini-3-flash', 'google/antigravity-gemini-3-flash'],
+                'claude_only': ['google/antigravity-claude-opus-4-6-thinking', 'google/antigravity-claude-sonnet-4-6', 'google/antigravity-claude-sonnet-4-6']
+            };
+
+            if (lookup[val] && heavy && standard && light) {
+                heavy.value = lookup[val][0];
+                standard.value = lookup[val][1];
+                light.value = lookup[val][2];
+                syncAgentsFromGroups(); // loop updates UI
+            }
+            e.target.selectedIndex = 0; // reset dropdown
+        });
+    }
+
     // Gather agent model map (used during install)
     function gatherAgentModels() {
         const map = {};
