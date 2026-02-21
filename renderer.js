@@ -6,11 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close confirmation modal
     document.getElementById('btnClose').addEventListener('click', () => {
-        showModal(window.t('Close Application') || 'Tutup Aplikasi',
-            `<p style="margin-bottom:12px;">${window.t('Are you sure you want to exit the setup?') || 'Apakah Anda yakin ingin keluar dari instalasi?'}</p>
+        showModal(window.t('Close confirm title') || 'Tutup Aplikasi',
+            `<p style="margin-bottom:12px;">${window.t('Close confirm text') || 'Apakah Anda yakin ingin keluar dari program?'}</p>
         <div style="display:flex;gap:8px;justify-content:flex-end;">
-            <button class="btn secondary" onclick="document.getElementById('modal').classList.remove('visible')">${window.t('Cancel') || 'Batal'}</button>
-            <button class="btn primary" id="btnConfirmExit" style="background:#E81123;">${window.t('Close') || 'Keluar'}</button>
+            <button class="btn secondary" onclick="document.getElementById('modal').classList.remove('visible')">${window.t('Close cancel') || 'Tidak'}</button>
+            <button class="btn primary" id="btnConfirmExit" style="background:#E81123;">${window.t('Close exit') || 'Ya, Keluar'}</button>
         </div>`);
         setTimeout(() => {
             const cb = document.getElementById('btnConfirmExit');
