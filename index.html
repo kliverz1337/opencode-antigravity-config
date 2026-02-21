@@ -74,8 +74,16 @@
                     <div id="agentModelPanel" class="agent-panel">
                         <div class="agent-panel-header">
                             <h3>🤖 oMo Agents — AI Model</h3>
-                            <button type="button" id="btnAgentAdvanced" class="btn secondary btn-agent-toggle">⚙
-                                Advanced</button>
+                            <div style="display:flex; gap:10px; align-items:center;">
+                                <select id="selGlobalPreset" class="btn secondary" style="padding: 6px 10px; margin: 0; min-width: 140px; border-radius: 6px; appearance: auto; background-color: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); cursor: pointer; height: 32px; font-size: 13px;">
+                                    <option value="" disabled selected>✨ Load Template</option>
+                                    <option value="antigravity_default">Antigravity Default</option>
+                                    <option value="max_reasoning">Max Reasoning (O1 Class)</option>
+                                    <option value="fast_cheap">Fast & Cheap</option>
+                                    <option value="claude_only">Claude Ecosystem</option>
+                                </select>
+                                <button type="button" id="btnAgentAdvanced" class="btn secondary btn-agent-toggle">⚙ Advanced</button>
+                            </div>
                         </div>
 
                         <!-- GROUP MODE (default) -->
@@ -421,3 +429,4 @@
 </body>
 
 </html>
+
