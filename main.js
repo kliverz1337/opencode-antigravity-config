@@ -61,17 +61,17 @@ ipcMain.on('window-close', () => { if (mainWindow) mainWindow.close(); });
 ipcMain.on('open-config-folder', () => { if (fs.existsSync(configDir)) shell.openPath(configDir); });
 ipcMain.on('run-auth-login', () => {
     if (process.platform === 'win32') {
-        spawn('cmd.exe', ['/c', 'start', 'cmd', '/k', 'opencode auth login'], { detached: true, stdio: 'ignore' });
+        spawn('cmd.exe', ['/c', 'start', 'cmd.exe', '/k', 'opencode', 'auth', 'login'], { detached: true, stdio: 'ignore' });
     }
 });
 ipcMain.on('run-opencode-cli', () => {
     if (process.platform === 'win32') {
-        spawn('cmd.exe', ['/c', 'start', 'cmd', '/k', 'opencode'], { detached: true, stdio: 'ignore' });
+        spawn('cmd.exe', ['/c', 'start', 'cmd.exe', '/k', 'opencode'], { detached: true, stdio: 'ignore' });
     }
 });
 ipcMain.on('run-opencode-web', () => {
     if (process.platform === 'win32') {
-        spawn('cmd.exe', ['/c', 'start', 'cmd', '/k', 'opencode web --port 8080'], { detached: true, stdio: 'ignore' });
+        spawn('cmd.exe', ['/c', 'start', 'cmd.exe', '/k', 'opencode', 'web', '--port', '8080'], { detached: true, stdio: 'ignore' });
     }
 });
 
@@ -311,7 +311,7 @@ ipcMain.on('start-install', async (ev, config) => {
         if (config.npmInstall) {
             sendLog('info', ''); sendLog('info', 'Running npm install...');
             const ok = await new Promise(resolve => {
-                const p = spawn('npm', ['install'], { cwd: configDir, shell: true, env: { ...process.env } });
+                const p = spawn(process.platform === 'win32' ? 'cmd.exe' : 'npm', process.platform === 'win32' ? ['/c', 'npm', 'install'] : ['install'], { cwd: configDir, env: { ...process.env } });
                 let prog = 65;
                 p.stdout.on('data', d => { for (const l of d.toString().trim().split('\n')) { if (l.trim()) { sendLog('info', `  npm: ${l.trim()}`); prog = Math.min(prog + 2, 88); sendProgress(prog); } } });
                 p.stderr.on('data', d => { for (const l of d.toString().trim().split('\n')) { if (l.trim() && !l.includes('npm warn')) sendLog('warn', `  npm: ${l.trim()}`); } });
