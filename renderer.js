@@ -313,5 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('btnNext4').addEventListener('click', () => navigateTo(5));
     document.getElementById('btnOpenFolder').addEventListener('click', () => window.api.openConfigFolder());
     document.getElementById('btnAuthLogin').addEventListener('click', () => window.api.runAuthLogin());
+    document.getElementById('btnRunCLI').addEventListener('click', () => window.api.runOpencodeCLI());
+    document.getElementById('btnRunWeb').addEventListener('click', () => window.api.runOpencodeWeb());
     document.getElementById('btnFinish').addEventListener('click', () => window.api.close());
 });

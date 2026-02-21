@@ -64,6 +64,16 @@ ipcMain.on('run-auth-login', () => {
         spawn('cmd.exe', ['/c', 'start', 'cmd', '/k', 'opencode auth login'], { detached: true, stdio: 'ignore' });
     }
 });
+ipcMain.on('run-opencode-cli', () => {
+    if (process.platform === 'win32') {
+        spawn('cmd.exe', ['/c', 'start', 'cmd', '/k', 'opencode'], { detached: true, stdio: 'ignore' });
+    }
+});
+ipcMain.on('run-opencode-web', () => {
+    if (process.platform === 'win32') {
+        spawn('cmd.exe', ['/c', 'start', 'cmd', '/k', 'opencode --port 8080'], { detached: true, stdio: 'ignore' });
+    }
+});
 
 function runCommand(cmd) {
     return new Promise(resolve => {

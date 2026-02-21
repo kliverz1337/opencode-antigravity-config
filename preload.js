@@ -18,5 +18,7 @@ contextBridge.exposeInMainWorld('api', {
     onInstallLog: (cb) => { ipcRenderer.removeAllListeners('install-log'); ipcRenderer.on('install-log', (e, d) => cb(d)); },
     onInstallComplete: (cb) => { ipcRenderer.removeAllListeners('install-complete'); ipcRenderer.on('install-complete', (e, d) => cb(d)); },
     openConfigFolder: () => ipcRenderer.send('open-config-folder'),
-    runAuthLogin: () => ipcRenderer.send('run-auth-login')
+    runAuthLogin: () => ipcRenderer.send('run-auth-login'),
+    runOpencodeCLI: () => ipcRenderer.send('run-opencode-cli'),
+    runOpencodeWeb: () => ipcRenderer.send('run-opencode-web')
 });

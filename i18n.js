@@ -55,6 +55,8 @@ const translations = {
     '🚀 Next Steps': { EN: '🚀 Next Steps', ID: '🚀 Langkah Berikut' },
     '📂 Config': { EN: '📂 Config', ID: '📂 Buka Config' },
     '🔑 Auth': { EN: '🔑 Auth', ID: '🔑 Login' },
+    '💻 CLI': { EN: '💻 CLI', ID: '💻 CLI' },
+    '🌐 Web': { EN: '🌐 Web', ID: '🌐 Web 8080' },
     'Close': { EN: 'Close', ID: 'Tutup' },
 
     // Modals & Dynamic
@@ -149,6 +151,8 @@ const tMap = [
     { selector: '#page5 .purple-label', key: '🚀 Next Steps' },
     { selector: '#btnOpenFolder', key: '📂 Config' },
     { selector: '#btnAuthLogin', key: '🔑 Auth' },
+    { selector: '#btnRunCLI', key: '💻 CLI' },
+    { selector: '#btnRunWeb', key: '🌐 Web' },
     { selector: '#btnFinish', key: 'Close' }
 ];
 
