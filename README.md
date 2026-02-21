@@ -5,13 +5,11 @@ GUI installer for [Antigravity OpenCode](https://opencode.ai) configuration stac
 ## Quick Start
 
 ```bash
-# Clone the repository
-git clone https://github.com/kliverz1337/opencode-antigravity-config.git
-cd opencode-antigravity-config
+# Option 1: Run directly without installing (Recommended)
+npx opencode-antigravity-config
 
-# Install dependencies and link globally
-npm install
-npm link
+# Option 2: Install globally
+npm install -g opencode-antigravity-config
 
 # Launch the installer GUI
 opencode-agc
@@ -93,8 +91,8 @@ Keys can also be added manually to the config files after installation.
 
 ```bash
 # Clone and install
-git clone <repo-url>
-cd opencode-config
+git clone https://github.com/kliverz1337/opencode-antigravity-config.git
+cd opencode-antigravity-config
 npm install
 
 # Run locally
