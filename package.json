@@ -1,6 +1,6 @@
 {
   "name": "opencode-antigravity-config",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "GUI installer for Antigravity OpenCode configuration",
   "main": "main.js",
   "bin": {
