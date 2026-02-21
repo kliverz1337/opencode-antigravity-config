@@ -71,7 +71,7 @@ ipcMain.on('run-opencode-cli', () => {
 });
 ipcMain.on('run-opencode-web', () => {
     if (process.platform === 'win32') {
-        spawn('cmd.exe', ['/c', 'start', 'cmd', '/k', 'opencode --port 8080'], { detached: true, stdio: 'ignore' });
+        spawn('cmd.exe', ['/c', 'start', 'cmd', '/k', 'opencode web --port 8080'], { detached: true, stdio: 'ignore' });
     }
 });
 
