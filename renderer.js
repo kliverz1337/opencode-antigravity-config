@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ── Page 0: Welcome ──
     document.getElementById('btnStart').addEventListener('click', () => { navigateTo(1); });
-    (async () => { const m = await window.api.getConfigMeta(); const el = document.getElementById('configMetaText'); if (el && m) el.textContent = `Config v${m.version} • ${m.date} • ${m.fileCount} files`; })();
+    (async () => { const m = await window.api.getConfigMeta(); const el = document.getElementById('configMetaText'); if (el && m) el.textContent = `Config v${m.version} • ${m.date} • ${m.fileCount} files`; const vt = document.querySelector('.version-text'); if (vt && m) vt.textContent = `v${m.version}`; })();
 
     // Agent Model Selection Logic
     const AGENT_GROUPS = {

@@ -9,8 +9,9 @@ const configData = require('./config-data.js');
 let mainWindow;
 const configDir = path.join(os.homedir(), '.config', 'opencode');
 
-const CONFIG_VERSION = '1.0.0';
-const CONFIG_DATE = '2026-02-20';
+const pkg = require('./package.json');
+const CONFIG_VERSION = pkg.version;
+const CONFIG_DATE = new Date().toISOString().split('T')[0];
 const VERSION_CHECK_URL = '';
 
 const BUNDLED_CONFIGS = [
