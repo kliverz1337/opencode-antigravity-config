@@ -5,10 +5,7 @@ GUI installer for [Antigravity OpenCode](https://opencode.ai) configuration stac
 ## Quick Start
 
 ```bash
-# Option 1: Run directly without installing (Recommended)
-npx opencode-antigravity-config
-
-# Option 2: Install globally
+# Install globally
 npm install -g opencode-antigravity-config
 
 # Launch the installer GUI
