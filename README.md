@@ -46,7 +46,8 @@ The installer provides one-click AI stack preset configurations under the **"✨
 | Preset Name | Heavy Group | Standard Group | Light Group | Use Case |
 |-------------|-------------|----------------|-------------|----------|
 | **Antigravity Default** | Gemini 3.1 Pro | Gemini 3.1 Pro | Gemini 3 Flash | Best balanced setup for general projects |
-| **Max Reasoning (O1 Class)** | Claude Opus 4.6 Thinking | Gemini 3 Deep Think | Claude Sonnet 4.6 | Highly complex logic, deep architecture fixes |
+| **Max Reasoning (O1 Class)** | Claude Opus 4.6 Thinking | Claude Sonnet 4.6 Thinking | Claude Sonnet 4.6 | Highly complex logic, deep architecture fixes |
+| **Hybrid Balance** | Claude Sonnet 4.6 Thinking | Gemini 3.1 Pro | Gemini 3 Flash | Best of both worlds, smart architect + solid coders |
 | **Fast & Cheap** | Gemini 3 Flash | Gemini 3 Flash | Gemini 3 Flash | Rapid prototyping, straightforward refactoring |
 | **Claude Ecosystem** | Claude Opus 4.6 Thinking | Claude Sonnet 4.6 | Claude Sonnet 4.6 | Pure Anthropic behavior everywhere |
 
