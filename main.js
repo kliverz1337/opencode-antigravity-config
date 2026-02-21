@@ -220,7 +220,23 @@ ipcMain.on('start-install', async (ev, config) => {
             const ds = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
             const bd = path.join(configDir, `.backup-${ds}`);
             const ef = fs.readdirSync(configDir).filter(f => f.endsWith('.json') || f.endsWith('.jsonc'));
-            if (ef.length) { sendLog('info', 'Backing up...'); fs.mkdirSync(bd); for (const f of ef) { fs.copyFileSync(path.join(configDir, f), path.join(bd, f)); sendLog('info', `Backed up: ${f}`); await new Promise(r => setTimeout(r, 60)); } sendLog('success', `Backup: ${path.basename(bd)}`); }
+            if (ef.length) {
+                sendLog('info', 'Backing up...'); fs.mkdirSync(bd);
+                for (const f of ef) { fs.copyFileSync(path.join(configDir, f), path.join(bd, f)); sendLog('info', `Backed up: ${f}`); await new Promise(r => setTimeout(r, 60)); }
+                sendLog('success', `Backup: ${path.basename(bd)}`);
+                // Auto-cleanup old backups (Keep last 3)
+                try {
+                    const backups = fs.readdirSync(configDir).filter(d => (d.startsWith('.backup-') || d.startsWith('.uninstall-backup-')) && fs.statSync(path.join(configDir, d)).isDirectory()).sort((a, b) => b.localeCompare(a));
+                    if (backups.length > 3) {
+                        const toRemove = backups.slice(3);
+                        sendLog('info', `Cleaning ${toRemove.length} old backup(s)...`);
+                        toRemove.forEach(rmBase => {
+                            fs.rmSync(path.join(configDir, rmBase), { recursive: true, force: true });
+                            sendLog('info', `Deleted: ${rmBase}`);
+                        });
+                    }
+                } catch (ce) { sendLog('warn', `Cleanup skipped: ${ce.message}`); }
+            }
         }
         sendProgress(25); await new Promise(r => setTimeout(r, 100));
 
