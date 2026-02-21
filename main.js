@@ -59,25 +59,45 @@ app.on('window-all-closed', () => {
 ipcMain.on('window-minimize', () => { if (mainWindow) mainWindow.minimize(); });
 ipcMain.on('window-close', () => { if (mainWindow) mainWindow.close(); });
 ipcMain.on('open-config-folder', () => { if (fs.existsSync(configDir)) shell.openPath(configDir); });
-ipcMain.on('run-auth-login', () => {
+
+// Cross-platform terminal launcher
+function openTerminalWith(command) {
+    const opts = { detached: true, stdio: 'ignore' };
     if (process.platform === 'win32') {
-        spawn('cmd.exe', ['/c', 'start', 'cmd.exe', '/k', 'opencode', 'auth', 'login'], { detached: true, stdio: 'ignore' });
+        spawn('cmd.exe', ['/c', 'start', 'cmd.exe', '/k', ...command.split(' ')], opts);
+    } else if (process.platform === 'darwin') {
+        // macOS: use osascript to open Terminal.app with command
+        const script = `tell application "Terminal" to do script "${command}"`;
+        spawn('osascript', ['-e', script], opts);
+    } else {
+        // Linux: detect available terminal emulator, then launch
+        const { execSync } = require('child_process');
+        const hasCmd = (cmd) => { try { execSync(`which ${cmd}`, { stdio: 'ignore' }); return true; } catch { return false; } };
+        const terminals = [
+            { test: 'x-terminal-emulator', cmd: 'x-terminal-emulator', args: ['-e', `bash -c '${command}; exec bash'`] },
+            { test: 'gnome-terminal', cmd: 'gnome-terminal', args: ['--', 'bash', '-c', `${command}; exec bash`] },
+            { test: 'konsole', cmd: 'konsole', args: ['-e', 'bash', '-c', `${command}; exec bash`] },
+            { test: 'xterm', cmd: 'xterm', args: ['-hold', '-e', command] }
+        ];
+        const found = terminals.find(t => hasCmd(t.test));
+        if (found) {
+            const p = spawn(found.cmd, found.args, opts);
+            p.unref();
+        } else {
+            // Fallback: run in background bash
+            const p = spawn('bash', ['-c', command], opts);
+            p.unref();
+        }
     }
-});
-ipcMain.on('run-opencode-cli', () => {
-    if (process.platform === 'win32') {
-        spawn('cmd.exe', ['/c', 'start', 'cmd.exe', '/k', 'opencode'], { detached: true, stdio: 'ignore' });
-    }
-});
-ipcMain.on('run-opencode-web', () => {
-    if (process.platform === 'win32') {
-        spawn('cmd.exe', ['/c', 'start', 'cmd.exe', '/k', 'opencode', 'web', '--port', '8080'], { detached: true, stdio: 'ignore' });
-    }
-});
+}
+
+ipcMain.on('run-auth-login', () => openTerminalWith('opencode auth login'));
+ipcMain.on('run-opencode-cli', () => openTerminalWith('opencode'));
+ipcMain.on('run-opencode-web', () => openTerminalWith('opencode web --port 8080'));
 
 function runCommand(cmd) {
     return new Promise(resolve => {
-        exec(cmd, { timeout: 10000 }, (err, stdout) => resolve(err ? null : stdout.trim()));
+        exec(cmd, { timeout: 15000 }, (err, stdout) => resolve(err ? null : stdout.trim()));
     });
 }
 
@@ -96,7 +116,8 @@ ipcMain.handle('check-system', async () => {
     const ocVer = await runCommand('opencode --version');
     items.push(ocVer ? { label: 'OpenCode', value: ocVer, status: 'ok' } : { label: 'OpenCode', value: 'Not found — npm i -g opencode@latest', status: 'warn' });
     const bk = Object.keys(configData).length;
-    items.push({ label: 'Embedded Configs', value: `${bk}/6 files`, status: bk === 6 ? 'ok' : 'fail' });
+    const expectedConfigs = BUNDLED_CONFIGS.length;
+    items.push({ label: 'Embedded Configs', value: `${bk}/${expectedConfigs} files`, status: bk === expectedConfigs ? 'ok' : 'fail' });
     if (fs.existsSync(configDir)) {
         const f = fs.readdirSync(configDir).filter(x => x.endsWith('.json') || x.endsWith('.jsonc'));
         items.push(f.length > 0 ? { label: 'Existing Config', value: `${f.length} files (will backup)`, status: 'warn' } : { label: 'Config Dir', value: 'Exists, empty', status: 'ok' });
