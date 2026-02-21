@@ -34,13 +34,13 @@ The installer deploys **6 configuration files** to `~/.config/opencode/`:
 
 | Agent | Role | Model |
 |-------|------|-------|
-| **Sisyphus** | Orchestrator Engine | Gemini 3 Pro (high) |
-| **Prometheus** | App Builder | Gemini 3 Pro (high) |
-| **Metis** | Senior Coder | Gemini 3 Pro (high) |
-| **Hephaestus** | Coder | Gemini 3 Pro (standard) |
-| **Momus** | Reviewer | Gemini 3 Pro (standard) |
-| **Atlas** | Planner | Gemini 3 Pro (standard) |
-| **Oracle** | Advisor | Gemini 3 Pro (high) |
+| **Sisyphus** | Orchestrator Engine | Gemini 3.1 Pro (high) |
+| **Prometheus** | App Builder | Gemini 3.1 Pro (high) |
+| **Metis** | Senior Coder | Gemini 3.1 Pro (high) |
+| **Hephaestus** | Coder | Gemini 3.1 Pro (standard) |
+| **Momus** | Reviewer | Gemini 3.1 Pro (standard) |
+| **Atlas** | Planner | Gemini 3.1 Pro (standard) |
+| **Oracle** | Advisor | Gemini 3.1 Pro (high) |
 | **Librarian** | Research | Gemini 3 Flash (low) |
 | **Explore** | Read-only Scout | Gemini 3 Flash (minimal) |
 | **Multimodal Looker** | Vision | Gemini 3 Flash (standard) |
@@ -49,11 +49,23 @@ The installer deploys **6 configuration files** to `~/.config/opencode/`:
 
 | Model | Context | Thinking |
 |-------|---------|----------|
-| Gemini 3 Pro | 1M tokens | standard / low / high |
+| Gemini 3.1 Pro | 1M tokens | standard / low / high |
 | Gemini 3 Flash | 1M tokens | standard / minimal / low / medium / high |
 | Claude 4.6 Sonnet | 200K tokens | standard |
 | Claude 4.6 Sonnet Thinking | 200K tokens | low (8K) / max (32K) |
 | Claude 4.6 Opus Thinking | 200K tokens | low (8K) / max (32K) |
+
+
+## Global Templates (Presets)
+
+The installer provides one-click AI stack preset configurations under the **"✨ Load Template"** dropdown.
+
+| Preset Name | Heavy Group | Standard Group | Light Group | Use Case |
+|-------------|-------------|----------------|-------------|----------|
+| **Antigravity Default** | Gemini 3.1 Pro | Gemini 3.1 Pro | Gemini 3 Flash | Best balanced setup for general projects |
+| **Max Reasoning (O1 Class)** | Claude Opus 4.6 Thinking | Gemini 3 Deep Think | Claude Sonnet 4.6 | Highly complex logic, deep architecture fixes |
+| **Fast & Cheap** | Gemini 3 Flash | Gemini 3 Flash | Gemini 3 Flash | Rapid prototyping, straightforward refactoring |
+| **Claude Ecosystem** | Claude Opus 4.6 Thinking | Claude Sonnet 4.6 | Claude Sonnet 4.6 | Pure Anthropic behavior everywhere |
 
 ## GUI Features
 
