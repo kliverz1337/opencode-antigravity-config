@@ -10,11 +10,11 @@
         "opencode-sync-plugin",
         "cc-safety-net"
     ],
-    "model": "google/antigravity-gemini-1.5-flash",
+    "model": "google/antigravity-gemini-3-flash",
     "provider": {
         "google": {
             "models": {
-                "antigravity-gemini-1.5-pro": {
+                "antigravity-gemini-3-1-pro": {
                     "name": "Gemini 3.1 Pro (Antigravity)",
                     "limit": {
                         "context": 1048576,
@@ -40,7 +40,7 @@
                         }
                     }
                 },
-                "antigravity-gemini-1.5-flash": {
+                "antigravity-gemini-3-flash": {
                     "name": "Gemini 3 Flash (Antigravity)",
                     "limit": {
                         "context": 1048576,
@@ -210,7 +210,7 @@
                         "standard": {}
                     }
                 },
-                "gemini-1.5-pro-preview": {
+                "gemini-3-1-pro-preview": {
                     "name": "Gemini 3.1 Pro Preview (Gemini CLI)",
                     "limit": {
                         "context": 1048576,
