@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const light = document.getElementById('selGroupLight');
             const lookup = {
                 'antigravity_default': ['google/antigravity-gemini-3-1-pro', 'google/antigravity-gemini-3-1-pro', 'google/antigravity-gemini-3-flash'],
-                'max_reasoning': ['google/antigravity-claude-opus-4-6-thinking', 'google/antigravity-gemini-3-deep-think', 'google/antigravity-claude-sonnet-4-6'],
+                'max_reasoning': ['google/antigravity-claude-opus-4-6-thinking', 'google/antigravity-claude-sonnet-4-6-thinking', 'google/antigravity-claude-sonnet-4-6'],
                 'fast_cheap': ['google/antigravity-gemini-3-flash', 'google/antigravity-gemini-3-flash', 'google/antigravity-gemini-3-flash'],
                 'claude_only': ['google/antigravity-claude-opus-4-6-thinking', 'google/antigravity-claude-sonnet-4-6', 'google/antigravity-claude-sonnet-4-6']
             };
