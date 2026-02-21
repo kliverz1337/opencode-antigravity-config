@@ -75,7 +75,8 @@
                         <div class="agent-panel-header">
                             <h3>🤖 oMo Agents — AI Model</h3>
                             <div style="display:flex; gap:10px; align-items:center;">
-                                <select id="selGlobalPreset" class="btn secondary" style="padding: 6px 10px; margin: 0; min-width: 140px; border-radius: 6px; appearance: auto; background-color: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); cursor: pointer; height: 32px; font-size: 13px;">
+                                <select id="selGlobalPreset" class="btn secondary"
+                                    style="padding: 6px 10px; margin: 0; min-width: 140px; border-radius: 6px; appearance: auto; background-color: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); cursor: pointer; height: 32px; font-size: 13px;">
                                     <option value="" disabled selected>✨ Load Template</option>
                                     <option value="antigravity_default">Antigravity Default</option>
                                     <option value="max_reasoning">Max Reasoning (O1 Class)</option>
@@ -83,7 +84,8 @@
                                     <option value="fast_cheap">Fast & Cheap</option>
                                     <option value="claude_only">Claude Ecosystem</option>
                                 </select>
-                                <button type="button" id="btnAgentAdvanced" class="btn secondary btn-agent-toggle">⚙ Advanced</button>
+                                <button type="button" id="btnAgentAdvanced" class="btn secondary btn-agent-toggle">⚙
+                                    Advanced</button>
                             </div>
                         </div>
 
@@ -95,11 +97,9 @@
                                     <span class="agent-group-members">Sisyphus, Prometheus, Metis, Oracle</span>
                                 </div>
                                 <select id="selGroupHeavy" class="agent-model-select">
-                                    <option value="google/antigravity-gemini-3-1-pro" selected>Gemini 3.1 Pro</option>
+                                    <option value="google/antigravity-gemini-3.1-pro" selected>Gemini 3.1 Pro</option>
                                     <option value="google/antigravity-gemini-3-flash">Gemini 3 Flash</option>
                                     <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
-                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
-                                        Think</option>
                                     <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
                                     </option>
                                 </select>
@@ -110,11 +110,9 @@
                                     <span class="agent-group-members">Hephaestus, Momus, Atlas</span>
                                 </div>
                                 <select id="selGroupStandard" class="agent-model-select">
-                                    <option value="google/antigravity-gemini-3-1-pro" selected>Gemini 3.1 Pro</option>
+                                    <option value="google/antigravity-gemini-3.1-pro" selected>Gemini 3.1 Pro</option>
                                     <option value="google/antigravity-gemini-3-flash">Gemini 3 Flash</option>
                                     <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
-                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
-                                        Think</option>
                                     <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
                                     </option>
                                 </select>
@@ -126,10 +124,8 @@
                                 </div>
                                 <select id="selGroupLight" class="agent-model-select">
                                     <option value="google/antigravity-gemini-3-flash" selected>Gemini 3 Flash</option>
-                                    <option value="google/antigravity-gemini-3-1-pro">Gemini 3.1 Pro</option>
+                                    <option value="google/antigravity-gemini-3.1-pro">Gemini 3.1 Pro</option>
                                     <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
-                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
-                                        Think</option>
                                     <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
                                     </option>
                                 </select>
@@ -142,43 +138,35 @@
                             <div class="agent-adv-row"><span class="agent-adv-name">Sisyphus
                                     <i>(Orchestrator)</i></span><select id="selAgent_sisyphus"
                                     class="agent-model-select agent-adv-select" data-group="heavy">
-                                    <option value="google/antigravity-gemini-3-1-pro" selected>Gemini 3.1 Pro</option>
+                                    <option value="google/antigravity-gemini-3.1-pro" selected>Gemini 3.1 Pro</option>
                                     <option value="google/antigravity-gemini-3-flash">Gemini 3 Flash</option>
                                     <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
-                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
-                                        Think</option>
                                     <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
                                     </option>
                                 </select></div>
                             <div class="agent-adv-row"><span class="agent-adv-name">Prometheus
                                     <i>(Builder)</i></span><select id="selAgent_prometheus"
                                     class="agent-model-select agent-adv-select" data-group="heavy">
-                                    <option value="google/antigravity-gemini-3-1-pro" selected>Gemini 3.1 Pro</option>
+                                    <option value="google/antigravity-gemini-3.1-pro" selected>Gemini 3.1 Pro</option>
                                     <option value="google/antigravity-gemini-3-flash">Gemini 3 Flash</option>
                                     <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
-                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
-                                        Think</option>
                                     <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
                                     </option>
                                 </select></div>
                             <div class="agent-adv-row"><span class="agent-adv-name">Metis <i>(Coder)</i></span><select
                                     id="selAgent_metis" class="agent-model-select agent-adv-select" data-group="heavy">
-                                    <option value="google/antigravity-gemini-3-1-pro" selected>Gemini 3.1 Pro</option>
+                                    <option value="google/antigravity-gemini-3.1-pro" selected>Gemini 3.1 Pro</option>
                                     <option value="google/antigravity-gemini-3-flash">Gemini 3 Flash</option>
                                     <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
-                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
-                                        Think</option>
                                     <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
                                     </option>
                                 </select></div>
                             <div class="agent-adv-row"><span class="agent-adv-name">Oracle
                                     <i>(Analyst)</i></span><select id="selAgent_oracle"
                                     class="agent-model-select agent-adv-select" data-group="heavy">
-                                    <option value="google/antigravity-gemini-3-1-pro" selected>Gemini 3.1 Pro</option>
+                                    <option value="google/antigravity-gemini-3.1-pro" selected>Gemini 3.1 Pro</option>
                                     <option value="google/antigravity-gemini-3-flash">Gemini 3 Flash</option>
                                     <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
-                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
-                                        Think</option>
                                     <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
                                     </option>
                                 </select></div>
@@ -187,33 +175,27 @@
                             <div class="agent-adv-row"><span class="agent-adv-name">Hephaestus
                                     <i>(Coder)</i></span><select id="selAgent_hephaestus"
                                     class="agent-model-select agent-adv-select" data-group="standard">
-                                    <option value="google/antigravity-gemini-3-1-pro" selected>Gemini 3.1 Pro</option>
+                                    <option value="google/antigravity-gemini-3.1-pro" selected>Gemini 3.1 Pro</option>
                                     <option value="google/antigravity-gemini-3-flash">Gemini 3 Flash</option>
                                     <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
-                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
-                                        Think</option>
                                     <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
                                     </option>
                                 </select></div>
                             <div class="agent-adv-row"><span class="agent-adv-name">Momus
                                     <i>(Reviewer)</i></span><select id="selAgent_momus"
                                     class="agent-model-select agent-adv-select" data-group="standard">
-                                    <option value="google/antigravity-gemini-3-1-pro" selected>Gemini 3.1 Pro</option>
+                                    <option value="google/antigravity-gemini-3.1-pro" selected>Gemini 3.1 Pro</option>
                                     <option value="google/antigravity-gemini-3-flash">Gemini 3 Flash</option>
                                     <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
-                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
-                                        Think</option>
                                     <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
                                     </option>
                                 </select></div>
                             <div class="agent-adv-row"><span class="agent-adv-name">Atlas <i>(Worker)</i></span><select
                                     id="selAgent_atlas" class="agent-model-select agent-adv-select"
                                     data-group="standard">
-                                    <option value="google/antigravity-gemini-3-1-pro" selected>Gemini 3.1 Pro</option>
+                                    <option value="google/antigravity-gemini-3.1-pro" selected>Gemini 3.1 Pro</option>
                                     <option value="google/antigravity-gemini-3-flash">Gemini 3 Flash</option>
                                     <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
-                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
-                                        Think</option>
                                     <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
                                     </option>
                                 </select></div>
@@ -223,10 +205,8 @@
                                     <i>(Research)</i></span><select id="selAgent_librarian"
                                     class="agent-model-select agent-adv-select" data-group="light">
                                     <option value="google/antigravity-gemini-3-flash" selected>Gemini 3 Flash</option>
-                                    <option value="google/antigravity-gemini-3-1-pro">Gemini 3.1 Pro</option>
+                                    <option value="google/antigravity-gemini-3.1-pro">Gemini 3.1 Pro</option>
                                     <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
-                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
-                                        Think</option>
                                     <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
                                     </option>
                                 </select></div>
@@ -234,10 +214,8 @@
                                     id="selAgent_explore" class="agent-model-select agent-adv-select"
                                     data-group="light">
                                     <option value="google/antigravity-gemini-3-flash" selected>Gemini 3 Flash</option>
-                                    <option value="google/antigravity-gemini-3-1-pro">Gemini 3.1 Pro</option>
+                                    <option value="google/antigravity-gemini-3.1-pro">Gemini 3.1 Pro</option>
                                     <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
-                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
-                                        Think</option>
                                     <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
                                     </option>
                                 </select></div>
@@ -245,10 +223,8 @@
                                     <i>(Vision)</i></span><select id="selAgent_multimodal_looker"
                                     class="agent-model-select agent-adv-select" data-group="light">
                                     <option value="google/antigravity-gemini-3-flash" selected>Gemini 3 Flash</option>
-                                    <option value="google/antigravity-gemini-3-1-pro">Gemini 3.1 Pro</option>
+                                    <option value="google/antigravity-gemini-3.1-pro">Gemini 3.1 Pro</option>
                                     <option value="google/antigravity-claude-sonnet-4-6">Claude Sonnet 4.6</option>
-                                    <option value="google/antigravity-claude-sonnet-4-6-thinking">Claude Sonnet 4.6
-                                        Think</option>
                                     <option value="google/antigravity-claude-opus-4-6-thinking">Claude Opus 4.6 Think
                                     </option>
                                 </select></div>
@@ -331,6 +307,10 @@
                                         value="opencode-sync-plugin"><span class="checkmark"></span>🌩️
                                     opencode-sync-plugin</label><span class="plugin-badge hidden" id="warnOpenSync">⚠ No
                                     key</span><span class="plugin-desc">Chat Sync (OpenSync)</span></div>
+                            <div class="plugin-row optional-plugin"><label class="modern-checkbox"><input
+                                        type="checkbox" class="plugin-checkbox" value="opencode-wakatime"><span
+                                        class="checkmark"></span>⏱️
+                                    opencode-wakatime</label><span class="plugin-desc">WakaTime Tracking</span></div>
                             <div class="plugin-row optional-plugin"><label class="modern-checkbox"><input
                                         type="checkbox" class="plugin-checkbox" value="cc-safety-net"><span
                                         class="checkmark"></span>🛡️
@@ -423,4 +403,3 @@
 </body>
 
 </html>
-

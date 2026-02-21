@@ -281,7 +281,7 @@ ipcMain.on('start-install', async (ev, config) => {
                     });
 
                     // Also update categories based on agent groups
-                    const heavyModel = config.agentModels.sisyphus || 'google/antigravity-gemini-3-1-pro';
+                    const heavyModel = config.agentModels.sisyphus || 'google/antigravity-gemini-3.1-pro';
                     const lightModel = config.agentModels.librarian || 'google/antigravity-gemini-3-flash';
                     const catMap = {
                         'visual-engineering': heavyModel, 'ultrabrain': heavyModel, 'deep': heavyModel,

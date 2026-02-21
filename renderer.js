@@ -100,9 +100,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const standard = document.getElementById('selGroupStandard');
             const light = document.getElementById('selGroupLight');
             const lookup = {
-                'antigravity_default': ['google/antigravity-gemini-3-1-pro', 'google/antigravity-gemini-3-1-pro', 'google/antigravity-gemini-3-flash'],
-                'max_reasoning': ['google/antigravity-claude-opus-4-6-thinking', 'google/antigravity-claude-sonnet-4-6-thinking', 'google/antigravity-claude-sonnet-4-6'],
-                'balance_hybrid': ['google/antigravity-claude-sonnet-4-6-thinking', 'google/antigravity-gemini-3-1-pro', 'google/antigravity-gemini-3-flash'],
+                'antigravity_default': ['google/antigravity-gemini-3.1-pro', 'google/antigravity-gemini-3.1-pro', 'google/antigravity-gemini-3-flash'],
+                'max_reasoning': ['google/antigravity-claude-opus-4-6-thinking', 'google/antigravity-claude-sonnet-4-6', 'google/antigravity-claude-sonnet-4-6'],
+                'balance_hybrid': ['google/antigravity-claude-opus-4-6-thinking', 'google/antigravity-gemini-3.1-pro', 'google/antigravity-gemini-3-flash'],
                 'fast_cheap': ['google/antigravity-gemini-3-flash', 'google/antigravity-gemini-3-flash', 'google/antigravity-gemini-3-flash'],
                 'claude_only': ['google/antigravity-claude-opus-4-6-thinking', 'google/antigravity-claude-sonnet-4-6', 'google/antigravity-claude-sonnet-4-6']
             };
