@@ -6,7 +6,7 @@ GUI installer for [Antigravity OpenCode](https://opencode.ai) configuration stac
 
 ```bash
 # Install globally
-npm install -g opencode-antigravity-config
+npm install -g opencode-antigravity-config@latest
 
 # Launch the installer GUI
 opencode-agc
