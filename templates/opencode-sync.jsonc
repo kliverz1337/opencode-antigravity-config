@@ -1,0 +1,12 @@
+{
+    // OpenSync Plugin Configuration
+    // Dapatkan credentials dari opensync.dev → Settings → API Access
+    "apiKey": "__OPENSYNC_API_KEY__",
+    "convexUrl": "__OPENSYNC_CONVEX_URL__",
+    "includeSessions": true,
+    "includeStash": true,
+    "defaultTags": [
+        "antigravity",
+        "opencode"
+    ]
+}

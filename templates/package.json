@@ -1,0 +1,6 @@
+{
+    "dependencies": {
+        "@opencode-ai/plugin": "1.2.6",
+        "opencode-antigravity-auth": "^1.5.1"
+    }
+}

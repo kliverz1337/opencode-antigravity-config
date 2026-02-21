@@ -1,0 +1,15 @@
+{
+    // ============================================================
+    // OPENCODE-SUPERMEMORY CONFIGURATION
+    // ============================================================
+    // API Key — ganti dengan API key dari https://console.supermemory.ai/keys
+    // Atau set via environment variable: SUPERMEMORY_API_KEY
+    "apiKey": "__SUPERMEMORY_API_KEY__",
+    "similarityThreshold": 0.5,
+    "maxMemories": 8,
+    "maxProjectMemories": 15,
+    "maxProfileItems": 8,
+    "injectProfile": true,
+    "containerTagPrefix": "antigravity",
+    "compactionThreshold": 0.95
+}
