@@ -131,3 +131,4 @@ refactor*.js
 temp/
 *backup*
 *.bak
+.agent/
