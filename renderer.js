@@ -112,7 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 light.value = lookup[val][2];
                 syncAgentsFromGroups(); // loop updates UI
             }
-            e.target.selectedIndex = 0; // reset dropdown
         });
     }
 
