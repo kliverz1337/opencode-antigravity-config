@@ -30,21 +30,6 @@ The installer deploys **6 configuration files** to `~/.config/opencode/`:
 | `opencode-sync.jsonc` | OpenSync plugin config |
 | `package.json` | Plugin dependencies |
 
-## oMo Agent Stack
-
-| Agent | Role | Model |
-|-------|------|-------|
-| **Sisyphus** | Orchestrator Engine | Gemini 3.1 Pro (high) |
-| **Prometheus** | App Builder | Gemini 3.1 Pro (high) |
-| **Metis** | Senior Coder | Gemini 3.1 Pro (high) |
-| **Hephaestus** | Coder | Gemini 3.1 Pro (standard) |
-| **Momus** | Reviewer | Gemini 3.1 Pro (standard) |
-| **Atlas** | Planner | Gemini 3.1 Pro (standard) |
-| **Oracle** | Advisor | Gemini 3.1 Pro (high) |
-| **Librarian** | Research | Gemini 3 Flash (low) |
-| **Explore** | Read-only Scout | Gemini 3 Flash (minimal) |
-| **Multimodal Looker** | Vision | Gemini 3 Flash (standard) |
-
 ## Available Models
 
 | Model | Context | Thinking |
@@ -120,20 +105,6 @@ npm link
 opencode-agc
 ```
 
-## Architecture
-
-```
-opencode-antigravity-config/
-├── cli.js           # npm bin entry → launches Electron
-├── main.js          # Electron main process + IPC handlers
-├── preload.js       # Context bridge (security)
-├── renderer.js      # UI logic + modal system
-├── i18n.js          # UI translations mapping
-├── index.html       # GUI layout (6-step wizard)
-├── styles.css       # Native Windows theme
-├── config-data.js   # Base64-encoded config payloads
-└── package.json     # npm package config + bin
-```
 
 ## License
 
